@@ -25,6 +25,7 @@ else
     echo 'root user'
 fi
 dnf install mysql -y  &>>$log_file
-dnf install python3 -y &>>$log_file
+dnf install git -y &>>$log_file
 validate $? "install mysql"
+validate $? "install git "
 
