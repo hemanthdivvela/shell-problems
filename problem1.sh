@@ -1,29 +1,28 @@
 #!/bin/bash
-USERID=$(id -u) 
-TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
-valadation(){
+userid=$(id -u)
+timestamp=$(date +%F-%H-%M-%S)
+file-path=$( $? | cut -d '.' -f1)
+log-file=$/file-path-/timestamp.log
+
+
+validate(){
     if [ $1 -ne 0 ]
-    then
-        echo '$2 provise command was not success'
-        exit 1
+    then 
+        echo '$2 is failure'
     else
-        echo '$2 provise command sucess'
+        echo '$2 is success'
     fi
 
 }
 
-
-if [ $USERID -ne 0 ]
+if [ userid -ne 0 ]
 then
-    echo "plese run this script with root sccess."
-    exit 1 # manually exit if error comos.
+    echo 'not root user '
 else
-    echo "You are super user."
+    echo 'root user'
 fi
-
-dnf install mysql -y 
-valadation $? "Installing MySQL"
+dnf install mysql
+dfn install python3
+validate $? "install mysql"
 
