@@ -22,7 +22,7 @@ then
     echo 'not root user '
     exit 1
 else
-    echo 'root user'
+    echo 'super user'
 fi
 
 dnf install mysql -y  &>>$log_file
