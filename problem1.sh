@@ -5,7 +5,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 valadation(){
-    if [ $? -ne 0 ]
+    if [ $1 -ne 0 ]
     then
         echo 'provise command was not success'
         exit 1
@@ -23,4 +23,5 @@ else
 fi
 
 dnf install mysql -y 
+valadation $? installation
 
