@@ -17,13 +17,14 @@ validate(){
 
 }
 
-if [ userid -ne 0 ]
+if [ $userid -ne 0 ]
 then
     echo 'not root user '
     exit 1
 else
     echo 'root user'
 fi
+
 dnf install mysql -y  &>>$log_file
 dnf install git -y &>>$log_file
 validate $? "install mysql"
