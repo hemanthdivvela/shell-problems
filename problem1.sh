@@ -7,10 +7,11 @@ LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 valadation(){
     if [ $1 -ne 0 ]
     then
-        echo 'provise command was not success'
+        echo '$2 provise command was not success'
         exit 1
     else
-        echo 'provise command sucess'
+        echo '$2 provise command sucess'
+    fi
 
 }
 
@@ -24,5 +25,5 @@ else
 fi
 
 dnf install mysql -y 
-valadation $? installation
+valadation $? "Installing MySQL"
 
