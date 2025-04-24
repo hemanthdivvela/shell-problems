@@ -1,17 +1,31 @@
 #!/bin/bash
-useradd=$(id -u)
-timestamp=$(date +%F-%H-%M-%S)
-file-path=$(echo  $? | cut -d "." -f1)
-direction=$file-path-timestamp.log
+USERID=$(id -u) 
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
-if [ $useradd -ne 0 ]
+VALIDATA(){
+    if [ $1 -ne 0 ]
+    then 
+        echo "$2...FAILURE"
+        exit 1
+    else
+        echo "$2...SUCCESS"
+    fi
+
+}
+if [ $USERID -ne 0 ]
 then
-    echo 'plese run this script with root sccess'
-    exit 1
-
+    echo "plese run this script with root sccess."
+    exit 1 # manually exit if error comos.
 else
-    echo 'you are super user'
-
+    echo "You are super user."
 fi
 
-dns install mysql -y
+dnf install mysql -y &>>$LOGFILE
+#$? is exit function
+VALIDATA $? "Installing MySQL"
+
+dnf install git -y &>>$LOGFILE
+#$? is exit function
+VALIDATA $? "Installing GIT"
