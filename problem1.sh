@@ -11,3 +11,5 @@ else
     echo 'you are super user'
 
 fi
+
+dns install mysql -y
