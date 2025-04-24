@@ -3,7 +3,7 @@
 userid=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
 file_path=$(echo  $0 | cut -d '.' -f1)
-log-file=$/tmp/$file_path-$timestamp.log
+log_file=$/tmp/$file_path-$timestamp.log
 
 
 validate(){
@@ -24,7 +24,7 @@ then
 else
     echo 'root user'
 fi
-dnf install mysql
-dnf install python3
+dnf install mysql -y  &>>$log_file
+dnf install python3 -y &>>$log_file
 validate $? "install mysql"
 
