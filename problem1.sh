@@ -1,3 +1,4 @@
+#!/bin/bash
 useradd=$(id -u)
 timestamp=$(date +%F-%H-%M-%S)
 file-path=$(echo  $? | cut -d "." -f1)
