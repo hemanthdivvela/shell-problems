@@ -10,7 +10,8 @@ valadation(){
         echo 'provise command was not success'
         exit 1
     else
-        eccho 'provise command sucess'
+        echo 'provise command sucess'
+
 }
 
 
