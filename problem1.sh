@@ -6,7 +6,8 @@ direction=$file-path-timestamp.log
 
 if [ $useradd -ne 0 ]
 then
-    echo 'plese run this script with root sccess '
+    echo 'plese run this script with root sccess'
+    exit 1
 
 else
     echo 'you are super user'
