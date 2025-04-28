@@ -2,7 +2,8 @@
 
 #!/bin/bash
 
-free -m | awk 'NR  == 2{print$7}'
+#free -m | awk 'NR  == 2{print$7}'
+ls /asdfg
 
 if [ $? -ne 0 ]
 then 
