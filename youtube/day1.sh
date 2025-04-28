@@ -8,5 +8,5 @@ if [ $? -ne 0 ]
 then 
     echo 'provice command is not success'
 else
-    echo 'provice command is success'
+    echo 'provice command is successs'
 fi
